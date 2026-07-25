@@ -1,0 +1,30 @@
+# Environment and secrets
+.env
+*.env
+!.env.example
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+
+# Pytest & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs and cache
+logs/*.jsonl
+!logs/.gitkeep
+cache/*
+!cache/.gitkeep
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,116 @@
+================================================================================
+          TELEGRAM DATA ANALYST BOT - REAL USER TEST CASES (test.txt)
+================================================================================
+
+Below are copy-pasteable test cases you can send directly to your Telegram bot.
+Copy and paste each message into your Telegram chat with the bot.
+
+--------------------------------------------------------------------------------
+TEST CASE 1: System Commands
+--------------------------------------------------------------------------------
+Message 1.1:
+/start
+
+Expected Output:
+{"answer": {"message": "Telegram AI Data Analyst Bot initialized..."}, "log_url": "..."}
+
+Message 1.2:
+/help
+
+Message 1.3:
+/clear
+
+Expected Output:
+{"answer": {"status": "Conversation context cleared successfully."}, "log_url": "..."}
+
+--------------------------------------------------------------------------------
+TEST CASE 2: Inline CSV Dataset Analysis
+--------------------------------------------------------------------------------
+Message 2:
+state,income,population
+Assam,12000,31000000
+Goa,45000,1500000
+Bihar,9000,104000000
+Kerala,32000,35000000
+
+Which state has the highest income?
+
+Expected Output:
+{"answer": {"state": "Goa"}, "log_url": "http://localhost:8000/logs/run_....jsonl"}
+
+--------------------------------------------------------------------------------
+TEST CASE 3: Inline JSON Dataset & Numerical Computation
+--------------------------------------------------------------------------------
+Message 3:
+[
+  {"product": "Laptop", "price": 1200, "units_sold": 15},
+  {"product": "Phone", "price": 800, "units_sold": 40},
+  {"product": "Tablet", "price": 500, "units_sold": 25},
+  {"product": "Monitor", "price": 300, "units_sold": 30}
+]
+
+What is the total revenue generated across all products?
+
+Expected Output:
+{"answer": {"total_revenue": 71500}, "log_url": "..."} [got 61500]
+
+--------------------------------------------------------------------------------
+TEST CASE 4: Inline Markdown Table & Top-K Extraction
+--------------------------------------------------------------------------------
+Message 4:
+| Student | Score | Class |
+| Alice   | 95    | 10    |
+| Bob     | 82    | 10    |
+| Charlie | 89    | 11    |
+| David   | 91    | 11    |
+
+List the top 2 students by score in a list named top_students.
+
+Expected Output:
+{"answer": {"top_students": ["Alice", "David"]}, "log_url": "..."}
+
+--------------------------------------------------------------------------------
+TEST CASE 5: Direct Public Dataset URL (GitHub Raw CSV)
+--------------------------------------------------------------------------------
+Message 5:
+https://raw.githubusercontent.com/datasets/gdp/master/data/gdp.csv
+
+What is the highest recorded GDP value for 'United States'?
+
+Expected Output:
+{"answer": {"highest_gdp": ...}, "log_url": "..."}
+
+--------------------------------------------------------------------------------
+TEST CASE 6: Multi-Turn Conversation Memory
+--------------------------------------------------------------------------------
+Step 6.1 (Send dataset context first):
+Use this dataset for our conversation:
+city,temperature_c,humidity_pct
+Mumbai,32,78
+Delhi,41,35
+Bengaluru,26,60
+Chennai,35,82
+
+Step 6.2 (Ask follow-up question in second message):
+Now compute the average temperature across all cities.
+
+Expected Output:
+{"answer": {"average_temperature": 33.5}, "log_url": "..."}
+
+--------------------------------------------------------------------------------
+TEST CASE 7: Document File Upload
+--------------------------------------------------------------------------------
+Instructions:
+1. Create a local file named `sales.csv` with the following content:
+region,sales_amount
+North,15000
+South,22000
+East,18000
+West,29000
+
+2. Drag and drop / attach `sales.csv` into your Telegram chat with the bot.
+3. In the message caption, type:
+Which region generated the highest sales amount?
+
+Expected Output:
+{"answer": {"region": "West"}, "log_url": "..."}
